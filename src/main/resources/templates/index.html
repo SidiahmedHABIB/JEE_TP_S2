@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Films</title>
+    <meta name="viewport" content="width=device-width , initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- Bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Liste des Films</h1>
+        <div class="border p-2 mb-2">
+            <div class="nav">
+                <a href="/film/new" class="btn btn-outline-secondary" >Ajouter Film</a>
+            </div>
+        </div>
+        <table class="table table-hover">
+            <tr style="background-color: #cccccc;">
+                <th>ID</th>
+                <th>TITLE</th>
+                <th>DESCRIPTION</th>
+                <th>ANEE PARUTION</th>
+                <th>CATEGORIE</th>
+                <th>ACTEURS</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="f : ${film}">
+                <td th:text="${f.id}"></td>
+                <td th:text="${f.titre}"></td>
+                <td th:text="${f.description}"></td>
+                <td th:text="${f.anneeparution}"></td>
+                <td th:text="${f.category.nom}"></td>
+                <td  >
+                    <ul th:each="a : ${f.acteurs}">
+                        <li th:text="${a.nom}"></li>
+                    </ul>
+                </td>
+                <td><a th:href="@{/film/update/{id} (id=${f.id})}" class="btn btn-outline-secondary" >Edite</a></td>
+                <td>
+                    <form th:action="@{/film/delete/{id} (id=${f.id})}" th:method="delete">
+                        <input type="submit" value="Supprimer" class="btn btn-outline-danger"
+                           onclick="return confirm('voulez vous vraiment supprimer ce film? ')">
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
