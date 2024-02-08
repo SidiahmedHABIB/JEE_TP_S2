@@ -1,10 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title></title>
 </head>
 <body>
+<div th:fragment="header" >
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a
+                    href=""
+                    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
+            >
+                <img
+                        src="./assets/images/logo1.png"
+                        alt=""
+                        height="25"
+                        class="d-inline-block align-text-top"
+                />
+                <strong class="fs-5" style="padding-left: 5px">Filmotheque</strong>
+            </a>
+            <div
+                    class="collapse navbar-collapse d-flex justify-content-center"
+                    id="navbarSupportedContent"
+            >
+                <ul class="navbar-nav mb-2">
+                    <li class="nav-item">
+                        <a href="/dashboard" class="nav-link link-dark">
+                            <i class="bi bi-house-door-fill"></i>
+                            <span class="fs-6" style="padding-left: 5px">Films</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/products" class="nav-link link-dark">
+                            <i class="bi bi-box-fill"></i>
+                            <span class="fs-6" style="padding-left: 5px">Items</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/admin/categories" class="nav-link link-dark">
+                            <i class="bi bi-box-fill"></i>
+                            <span class="fs-6" style="padding-left: 5px">Items</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/admin/users" class="nav-link link-dark">
+                            <i class="bi bi-box-fill"></i>
+                            <span class="fs-6" style="padding-left: 5px">Items</span>
+                        </a>
+                    </li>
 
+                    <div class="d-flex">
+                        <li class="nav-item dropdown">
+                            <a
+                                    class="nav-link dropdown-toggle"
+                                    href="#"
+                                    id="navbarDropdown"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="true"
+                            >
+                                <span class="fs-6 me-" style="padding-left: 5px">Logout</span>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item link-dark">
+                                    <i class="bi bi-box-arrow-right"></i>
+                                    <span class="fs-6 ms-" style="padding-left: 5px">Logout</span>
+                                </a>
+                            </ul>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
 </body>
 </html>

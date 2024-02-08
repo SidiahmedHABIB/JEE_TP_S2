@@ -1,8 +1,8 @@
 package com.javaee.filmotheque.repositories;
 
-import com.javaee.filmotheque.entities.Acteur;
+import com.javaee.filmotheque.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ActeurRepository extends JpaRepository<Acteur,Long> {
+public interface UserRepository extends JpaRepository<User,Long> {
 
 }

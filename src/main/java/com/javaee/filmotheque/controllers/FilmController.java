@@ -1,5 +1,6 @@
 package com.javaee.filmotheque.controllers;
 
+import com.javaee.filmotheque.entities.Category;
 import com.javaee.filmotheque.entities.Film;
 import com.javaee.filmotheque.services.interfaces.IActeurService;
 import com.javaee.filmotheque.services.interfaces.ICategoryService;
@@ -20,6 +21,7 @@ public class FilmController {
     IActeurService iActeurService;
     @GetMapping("/all")
     public String getAllFilms (Model model){
+        model.addAttribute("categories", iCategoryService.findAllCategories());
         model.addAttribute("film", iFilmService.findAllFilms());
         return "index";
     }
@@ -54,6 +56,23 @@ public class FilmController {
     public String updateFilm (Film f){
         iFilmService.updateFilm(f);
         return "redirect:/film/all";
+    }
+    @PostMapping("/find")
+    public String getFilmsByTitre (Model model, String titre){
+        model.addAttribute("film", iFilmService.findFilmsByTitre(titre));
+        return "index";
+    }
+    @PostMapping("/findc")
+    public String getFilmsByCategory (Model model,  @RequestParam(name = "category", required = false, defaultValue = "0") long categoryId){
+        model.addAttribute("categories", iCategoryService.findAllCategories());
+        if (categoryId != 0) {
+            Category selectedCategory = iCategoryService.findCategoryById(categoryId);
+            model.addAttribute("film", iFilmService.findFilmsByCategory(selectedCategory));
+        } else {
+            model.addAttribute("film", iFilmService.findAllFilms());
+        }
+        model.addAttribute("categoriesId", categoryId);
+        return "index";
     }
 
 

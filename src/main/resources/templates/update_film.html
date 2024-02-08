@@ -35,13 +35,7 @@
                     <div class="mb-4">
                         <label for="category" class="form-label">Categories: </label>
                         <select name="category" class="form-select">
-                            <option th:each="cat : ${categories}" th:value="${cat.id}" th:text="${cat.nom}" th:selected="${cat.id == film.category.id} "></option>
-                        </select>
-                    </div>
-                    <div class="mb-4">
-                        <label for="category" class="form-label">Categories: </label>
-                        <select name="category" class="form-select">
-                            <option th:each="cat : ${categories}" th:value="${cat.id}" th:text="${cat.nom}" th:selected="${cat.id == film.category.id} "></option>
+                            <option th:each="cat : ${categories}" th:value="${cat.id}" th:text="${cat.nom}" th:selected="${cat.id == film.category.id}"></option>
                         </select>
                     </div>
                     <div class="mb-4">

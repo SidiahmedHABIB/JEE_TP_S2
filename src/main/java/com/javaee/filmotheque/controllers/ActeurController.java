@@ -10,6 +10,4 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ActeurController {
     @Autowired
     IActeurService iActeurService;
-
-
 }
